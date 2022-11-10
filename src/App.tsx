@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [time, setTime] = useState(new Date());
+
+  const timer = setInterval(() => {
+    setTime(new Date());
+  }, 1000);
+
+  useEffect(() => {
+    clearInterval(timer)
+  }, [timer]);
+
+  let isEven = true;
+  if (time.getTime() % 2 === 0){
+    isEven = true;
+  } else {
+    isEven = false;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //DOM
+    <div >
+    <h3>현재 시간: { time.toLocaleTimeString() }</h3>
+    <h3>지금 시간은 홀일까요 짝일까요? = {isEven ? '짝이네' : '홀이네'}</h3>
+    <h3>자기소개</h3>
+    <h3>이름: 김성준</h3>
+    <h3>학력</h3>
+    <>
+    <li>덕일전자공업고등학교</li>
+    <li>동양미래대학교</li>
+    </>
+    <h3>경력</h3>
+    <>
+    <li>SKT</li>
+    </>
     </div>
   );
 }
