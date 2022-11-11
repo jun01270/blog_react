@@ -11,13 +11,6 @@ function App() {
     clearInterval(timer);
   }, [timer]);
 
-  let isEven = true;
-  if (time.getTime() % 2 === 0) {
-    isEven = true;
-  } else {
-    isEven = false;
-  }
-
   return (
     //DOM
     <div>
