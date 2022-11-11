@@ -23,7 +23,7 @@ function App() {
     <div>
       <h3>현재 시간: {time.toLocaleTimeString()}</h3>
       <h3>자기소개</h3>
-      <h3>이름: 김성준</h3>
+      <h3>이름: 김성준(21)</h3>
       <h3>학력</h3>
       <>
         <li>덕일전자공업고등학교</li>
