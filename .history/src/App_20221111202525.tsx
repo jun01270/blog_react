@@ -5,7 +5,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const { Header, Content } = Layout;
+
+const { Header } = Layout;
 import './App.css';
 import { Layout, Menu } from 'antd';
 
@@ -31,24 +32,35 @@ function App() {
               defaultSelectedKeys={["1"]}
               items={[{
                 key: 1,
-                label: <Link to="/">Home</Link>,
+                label: "Home"
               }, {
                 key: 2,
-                label: <Link to="/resume">이력서</Link>,
+                label: "이력서"
               },{
                 key: 3,
-                label: <Link to="/portfolio">포트포리오</Link>,
+                label: "포트폴리오"
               }]}
             />
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/resume">이력서</Link>
+                </li>
+                <li>
+                  <Link to="/portfolio">포트포리오</Link>
+                </li>
+              </ul>
+            </nav>
           </Header>
-          <Layout.Content style={{ padding: "100 50px" }}>
             <Routes>
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/resume" element = {<Resume />} />
               <Route path="/" element={<Home />} />
                 <Home />
             </Routes>
-          </Layout.Content>
         </Router>
         </Layout>
       );

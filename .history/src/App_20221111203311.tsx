@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 const { Header, Content } = Layout;
-import './App.css';
+import '/App.css';
 import { Layout, Menu } from 'antd';
 
 function App() {

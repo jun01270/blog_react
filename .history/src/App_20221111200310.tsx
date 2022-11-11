@@ -5,9 +5,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const { Header, Content } = Layout;
-import './App.css';
-import { Layout, Menu } from 'antd';
 
 function App() {
   const [time, setTime] = useState(new Date());
@@ -20,37 +17,38 @@ function App() {
     clearInterval(timer);
   }, [timer]);
   
-  return (
-    <Layout className="layout">
+    return {
+      <>
       <h3>현재 시간: {time.toLocaleTimeString()}</h3>
-      <Router>
-          <Header>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={["1"]}
-              items={[{
-                key: 1,
-                label: <Link to="/">Home</Link>,
-              }, {
-                key: 2,
-                label: <Link to="/resume">이력서</Link>,
-              },{
-                key: 3,
-                label: <Link to="/portfolio">포트포리오</Link>,
-              }]}
-            />
-          </Header>
-          <Layout.Content style={{ padding: "100 50px" }}>
+      </>
+      return (
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/resume">resume</Link>
+                </li>
+                <li>
+                  <Link to="/portfolio">portfolio</Link>
+                </li>
+              </ul>
+            </nav>
+    
+            {/* A <Switch> looks through its children <Route>s and
+                renders the first one that matches the current URL. */}
             <Routes>
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio" element={<portfolio />} />
               <Route path="/resume" element = {<Resume />} />
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home /} />
                 <Home />
+              </Route>
             </Routes>
-          </Layout.Content>
+          </div>
         </Router>
-        </Layout>
       );
 }
 
@@ -78,8 +76,8 @@ const Resume = () => {
   return <></>
 }
 
-const Portfolio = () => {
-  return <>포트폴리오</>
+const portfolio = () => {
+  return <></>
 }
 
 export default App;

@@ -5,9 +5,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const { Header, Content } = Layout;
 import './App.css';
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 
 function App() {
   const [time, setTime] = useState(new Date());
@@ -20,37 +19,34 @@ function App() {
     clearInterval(timer);
   }, [timer]);
   
-  return (
+  return {
     <Layout className="layout">
       <h3>현재 시간: {time.toLocaleTimeString()}</h3>
-      <Router>
-          <Header>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={["1"]}
-              items={[{
-                key: 1,
-                label: <Link to="/">Home</Link>,
-              }, {
-                key: 2,
-                label: <Link to="/resume">이력서</Link>,
-              },{
-                key: 3,
-                label: <Link to="/portfolio">포트포리오</Link>,
-              }]}
-            />
-          </Header>
-          <Layout.Content style={{ padding: "100 50px" }}>
+        <Router>
+          <>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/resume">이력서</Link>
+                </li>
+                <li>
+                  <Link to="/portfolio">포트포리오</Link>
+                </li>
+              </ul>
+            </nav>
+          </>
             <Routes>
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio" element={<portfolio />} />
               <Route path="/resume" element = {<Resume />} />
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home /} />
                 <Home />
             </Routes>
-          </Layout.Content>
+          </div>
         </Router>
-        </Layout>
+        </div>
       );
 }
 
@@ -78,7 +74,7 @@ const Resume = () => {
   return <></>
 }
 
-const Portfolio = () => {
+const portfolio = () => {
   return <>포트폴리오</>
 }
 

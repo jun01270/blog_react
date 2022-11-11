@@ -5,8 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const { Header, Content } = Layout;
-import './App.css';
+
+const { Header } = Layout;
+import '/App.css';
 import { Layout, Menu } from 'antd';
 
 function App() {
@@ -41,14 +42,14 @@ function App() {
               }]}
             />
           </Header>
-          <Layout.Content style={{ padding: "100 50px" }}>
+          <Layout>
             <Routes>
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/resume" element = {<Resume />} />
               <Route path="/" element={<Home />} />
                 <Home />
             </Routes>
-          </Layout.Content>
+          </Layout>
         </Router>
         </Layout>
       );
