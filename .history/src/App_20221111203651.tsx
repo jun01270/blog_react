@@ -46,6 +46,7 @@ function App() {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/resume" element = {<Resume />} />
               <Route path="/" element={<Home />} />
+                <Home />
             </Routes>
           </Layout.Content>
         </Router>
