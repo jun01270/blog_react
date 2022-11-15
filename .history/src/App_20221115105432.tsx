@@ -101,7 +101,7 @@ const Practice =() => {
 }
 
 const Board =() => {
-  const { Header, Content, Footer,  } = Layout;
+  const { Header, Footer, Content } = Layout;
   // const items1: MenuProps['items'] = ['1', '2', '3', '4'].map(key => ({
   //   key,
   //   label: `nav ${key}`,
@@ -113,7 +113,7 @@ const Board =() => {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={['2']}
         items={new Array(4).fill(null).map((_, index) => {
           const key = index + 1;
           return {

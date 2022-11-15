@@ -101,11 +101,7 @@ const Practice =() => {
 }
 
 const Board =() => {
-  const { Header, Content, Footer,  } = Layout;
-  // const items1: MenuProps['items'] = ['1', '2', '3', '4'].map(key => ({
-  //   key,
-  //   label: `nav ${key}`,
-  // }));
+  const { Header, Footer, Content } = Layout;
   return <>
     <Layout className="layout">
     <Header>
@@ -113,7 +109,7 @@ const Board =() => {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={['2']}
         items={new Array(4).fill(null).map((_, index) => {
           const key = index + 1;
           return {
@@ -133,6 +129,7 @@ const Board =() => {
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
   </Layout>
+);
   </>
 }
 

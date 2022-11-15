@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 const { Header } = Layout;
 import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
+import type { MenuProps } from 'antd';
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -101,27 +102,16 @@ const Practice =() => {
 }
 
 const Board =() => {
-  const { Header, Content, Footer,  } = Layout;
-  // const items1: MenuProps['items'] = ['1', '2', '3', '4'].map(key => ({
-  //   key,
-  //   label: `nav ${key}`,
-  // }));
+  const { Header, Footer, Content } = Layout;
+  const items1: MenuProps['items'] = ['1', '2', '3'].map(key => ({
+    key,
+    label: `nav ${key}`,
+  }));
   return <>
     <Layout className="layout">
-    <Header>
+    <Header className="header">
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['1']}
-        items={new Array(4).fill(null).map((_, index) => {
-          const key = index + 1;
-          return {
-            key,
-            label: `nav ${key}`,
-          };
-        })}
-      />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
     </Header>
     <Content style={{ padding: '0 50px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -133,6 +123,7 @@ const Board =() => {
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
   </Layout>
+);
   </>
 }
 
