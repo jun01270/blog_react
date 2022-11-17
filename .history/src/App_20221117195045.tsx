@@ -4,25 +4,10 @@ const { Header } = Layout;
 import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
 import { SymbolDisplayPartKind } from "typescript";
-import { GoogleLogin, GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
-import axios from "axios";
-
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
 function App() {
-  const login = useGoogleLogin({
-    onSuccess: async (codeResponse) => {
-      const { code } = codeResponse
-      console.log(codeResponse),
-      await axios.post('http://localhost:5000/auth/google', {
-        code,
-      });
-    },
-    flow: 'auth-code',
-  });
-
   const { Header, Content, Footer,  } = Layout;
   const [time, setTime] = useState(new Date());
   const timer = setInterval(() => {
@@ -36,17 +21,7 @@ function App() {
   return (
     <Layout className="layout">
     <h3>현재 시간: {time.toLocaleTimeString()}</h3>
-    <Button onClick={() => {
-      login();
-    }}>로그인</Button>
-    <GoogleLogin
-      onSuccess={credentialResponse => {
-        console.log(credentialResponse);
-      }}
-      onError={() => {
-        console.log('Login Failed');
-      }}
-    />;
+    
     <Router>
           <Header>
             <Menu

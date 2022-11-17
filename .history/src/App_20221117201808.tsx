@@ -5,7 +5,6 @@ import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
 import { SymbolDisplayPartKind } from "typescript";
 import { GoogleLogin, GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
-import axios from "axios";
 
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -13,13 +12,7 @@ import axios from "axios";
 
 function App() {
   const login = useGoogleLogin({
-    onSuccess: async (codeResponse) => {
-      const { code } = codeResponse
-      console.log(codeResponse),
-      await axios.post('http://localhost:5000/auth/google', {
-        code,
-      });
-    },
+    onSuccess: codeResponse => console.log(codeResponse),
     flow: 'auth-code',
   });
 

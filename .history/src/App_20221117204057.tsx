@@ -18,7 +18,7 @@ function App() {
       console.log(codeResponse),
       await axios.post('http://localhost:5000/auth/google', {
         code,
-      });
+      });;
     },
     flow: 'auth-code',
   });
