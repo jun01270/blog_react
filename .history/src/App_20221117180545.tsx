@@ -3,7 +3,6 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 const { Header } = Layout;
 import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
-import { SymbolDisplayPartKind } from "typescript";
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -45,8 +44,8 @@ function App() {
               }]}
             />
           </Header>
-            <Layout.Content style={{ padding: '0 50px', height: "300px" }}>
-            <div className="site-layout-content" style={{height: 200}}>
+            <Layout.Content style={{ padding: '0 50px', maxHeight: "100%" }}>
+            <div className="site-layout-content">
             <Routes>
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/resume" element = {<Resume />} />
@@ -63,12 +62,7 @@ function App() {
 
 const Home = () => {
 const { Header, Content, Footer } = Layout;
-  return <div style={{background: "#fff",
-  height: 200, padding: 24, marginTop: "60px",
-  marginBottom: 60,
-
-}}
-  >홈페이지</div>;
+  return <>홈페이지</>;
 }
 
 const Resume = () => {

@@ -3,12 +3,10 @@ import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 const { Header } = Layout;
 import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
-import { SymbolDisplayPartKind } from "typescript";
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 function App() {
-  const { Header, Content, Footer,  } = Layout;
   const [time, setTime] = useState(new Date());
   const timer = setInterval(() => {
     setTime(new Date());
@@ -20,8 +18,8 @@ function App() {
   
   return (
     <Layout className="layout">
-    <h3>현재 시간: {time.toLocaleTimeString()}</h3>
-    <Router>
+      <h3>현재 시간: {time.toLocaleTimeString()}</h3>
+      <Router>
           <Header>
             <Menu
               theme="dark"
@@ -45,8 +43,7 @@ function App() {
               }]}
             />
           </Header>
-            <Layout.Content style={{ padding: '0 50px', height: "300px" }}>
-            <div className="site-layout-content" style={{height: 200}}>
+          <Layout.Content style={{ padding: "100 50px" }}>
             <Routes>
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/resume" element = {<Resume />} />
@@ -54,21 +51,17 @@ function App() {
               <Route path="/practice" element = {<Practice />} />
               <Route path="/board" element = {<Board />} />
             </Routes>
-            </div>
           </Layout.Content>
         </Router>
         </Layout>
-  );   }
-
+      );
+}
 
 const Home = () => {
-const { Header, Content, Footer } = Layout;
-  return <div style={{background: "#fff",
-  height: 200, padding: 24, marginTop: "60px",
-  marginBottom: 60,
 
-}}
-  >홈페이지</div>;
+  const { Header, Content, Footer } = Layout;
+
+  return <>홈페이지</>
 }
 
 const Resume = () => {
@@ -112,6 +105,10 @@ const Practice =() => {
 
 const Board =() => {
   const { Header, Content, Footer,  } = Layout;
+  // const items1: MenuProps['items'] = ['1', '2', '3', '4'].map(key => ({
+  //   key,
+  //   label: `nav ${key}`,
+  // }));
   return <>
     <Layout className="layout">
     <Header>
@@ -119,22 +116,14 @@ const Board =() => {
       <Menu
         theme="dark"
         mode="horizontal"
-        items={[{
-          key: 1,
-          label: <Link to="/">Home</Link>,
-        }, {
-          key: 2,
-          label: <Link to="/resume">이력서</Link>,
-        },{
-          key: 3,
-          label: <Link to="/portfolio">포트포리오</Link>,
-        },{
-          key: 4,
-          label: <Link to="/Practice">글쓰기</Link>
-        },{
-          key: 5,
-          label: <Link to="/Board">게시판</Link>
-        }]}
+        defaultSelectedKeys={['1']}
+        items={new Array(4).fill(null).map((_, index) => {
+          const key = index + 1;
+          return {
+            key,
+            label: `nav ${key}`,
+          };
+        })}
       />
     </Header>
     <Content style={{ padding: '0 50px' }}>
