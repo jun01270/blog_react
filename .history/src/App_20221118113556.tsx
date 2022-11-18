@@ -4,7 +4,6 @@ import './App.css';
 import { Layout, Menu, Button, Breadcrumb } from 'antd';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
-import { Header } from "antd/lib/layout/layout";
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -21,6 +20,7 @@ function App() {
     flow: 'auth-code',
   });
 
+  const { Header, Content, Footer,  } = Layout;
   const [time, setTime] = useState(new Date());
   const timer = setInterval(() => {
     setTime(new Date());
@@ -85,6 +85,7 @@ function App() {
 
 
 const Home = () => {
+const { Header, Content, Footer } = Layout;
   return <div style={{background: "#fff",
   height: 200, padding: 24, marginTop: "60px",
   marginBottom: 60,

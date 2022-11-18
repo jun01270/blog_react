@@ -85,6 +85,7 @@ function App() {
 
 
 const Home = () => {
+const { Header, Content, Footer } = Layout;
   return <div style={{background: "#fff",
   height: 200, padding: 24, marginTop: "60px",
   marginBottom: 60,
