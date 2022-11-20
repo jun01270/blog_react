@@ -5,7 +5,7 @@ import { Layout, Menu, Button, Breadcrumb, List, Avatar } from 'antd';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import { Header } from "antd/lib/layout/layout";
-import  Guestbook  from "./guestbook";
+import Item from "antd/lib/list/Item";
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -177,6 +177,48 @@ const Board =() => {
   </Layout>
   </>
 }
+type GuestbookItem = {
+  key: number,
+  title: string,
+  content: string,
+  username: string
+}
+const sample: GuestbookItem[] = [
+  {
+    key: 1,
+    title: "안녕",
+    content: '첫번쨰글',
+    username: '성준'
+  },
+  {
+    key: 2,
+    title: "안녕",
+    content: '두번쨰글',
+    username: '성홑'
+  },
+];
+const Guestbook = () => {
 
+  return<>
+   <List
+    itemLayout="horizontal"
+    dataSource={sample}
+    renderItem={() => (
+      <List.Item style = {{background: '#fff'}}>
+        <List.Item.Meta
+          avatar={
+          <div style={{display: "flex", flexDirection: "column", alignItems: 'center',
+          justifyContent: "center"}}>
+            <Avatar src="https://joeschmoe.io/api/v1/random" />
+          <>item.username</>
+          </div>
+        }
+        title={item.title}
+        desciption={item.content}
+        />
+      </List.Item>
+    )}
+  /></>;
+};
 
 export default App;

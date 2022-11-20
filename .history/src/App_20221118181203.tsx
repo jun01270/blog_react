@@ -5,7 +5,6 @@ import { Layout, Menu, Button, Breadcrumb, List, Avatar } from 'antd';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import { Header } from "antd/lib/layout/layout";
-import  Guestbook  from "./guestbook";
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -178,5 +177,23 @@ const Board =() => {
   </>
 }
 
+const Guestbook = () => {
+
+
+  return<>
+   <List
+    itemLayout="horizontal"
+    dataSource={[]}
+    renderItem={ => (
+      <List.Item>
+        <List.Item.Meta
+          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+          title={<a href="https://ant.design">{'제목'}</a>}
+          description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+        />
+      </List.Item>
+    )}
+  /></>;
+};
 
 export default App;
