@@ -33,10 +33,18 @@ function App() {
   
   return (
     <Layout className="layout">
-    {/* <h3>현재 시간: {time.toLocaleTimeString()}</h3> */}
-    {/* <Button onClick={() => {
+    <h3>현재 시간: {time.toLocaleTimeString()}</h3>
+    <Button onClick={() => {
       login();
-    }}>로그인</Button> */}
+    }}>로그인</Button>
+    <GoogleLogin
+      onSuccess={credentialResponse => {
+        console.log(credentialResponse);
+      }}
+      onError={() => {
+        console.log('Login Failed');
+      }}
+    />;
     <Router>
           <Header>
             <Menu
@@ -55,8 +63,11 @@ function App() {
               },{
                 key: 4,
                 label: <Link to="/Practice">글쓰기</Link>
-              }, {
+              },{
                 key: 5,
+                label: <Link to="/Board">게시판</Link>
+              }, {
+                key: 6,
                 label: <Link to="/guestbook">방명록</Link>
               }]}
             />
@@ -68,6 +79,7 @@ function App() {
               <Route path="/resume" element = {<Resume />} />
               <Route path="/" element={<Home />} />
               <Route path="/practice" element = {<Practice />} />
+              <Route path="/board" element = {<Board />} />
               <Route path="/guestbook" element={<Guestbook />} />
               
             </Routes>
@@ -79,25 +91,25 @@ function App() {
 
 
 const Home = () => {
-  return <a style={{background: "#fff",
+  return <div style={{background: "#fff",
   height: 200, padding: 24, marginTop: "60px",
   marginBottom: 60,
 
 }}
-  href="https://jun01270.github.io/blog_react/">홈페이지</a>;
+  >홈페이지</div>;
 }
 
 const Resume = () => {
   return (
     //DOM
   <div>
-      <h1 style = {{ }}>자기소개</h1>
+      <h3>자기소개</h3>
       <h3>이름: 김성준(21)</h3>
       <h3>학력</h3>
-      <ul>
+      <>
         <li>덕일전자공업고등학교</li>
-        <li>동양미래대학교  컴퓨터소프트웨어공학과 </li>
-      </ul>
+        <li>동양미래대학교</li>
+      </>
       <h3>경력</h3>
       <>
         <li>SKT</li>
@@ -124,6 +136,46 @@ const Practice =() => {
      <Button type="primary" id="Pbutton" >글쓰기 버튼</Button>
      </div>
   </div>
+}
+
+const Board =() => {
+  const { Header, Content, Footer,  } = Layout;
+  return <>
+    <Layout className="layout">
+    <Header>
+      <div className="logo" />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        items={[{
+          key: 1,
+          label: <Link to="/">Home</Link>,
+        }, {
+          key: 2,
+          label: <Link to="/resume">이력서</Link>,
+        },{
+          key: 3,
+          label: <Link to="/portfolio">포트포리오</Link>,
+        },{
+          key: 4,
+          label: <Link to="/Practice">글쓰기</Link>
+        },{
+          key: 5,
+          label: <Link to="/Board">게시판</Link>
+        }]}
+      />
+    </Header>
+    <Content style={{ padding: '0 50px' }}>
+      <Breadcrumb style={{ margin: '16px 0' }}>
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>List</Breadcrumb.Item>
+        <Breadcrumb.Item>App</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="site-layout-content">Content</div>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+  </Layout>
+  </>
 }
 
 
