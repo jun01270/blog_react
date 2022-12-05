@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from "react";
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
 import './App.css';
-import { Layout, Menu, Button, Breadcrumb } from 'antd';
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { Layout, Menu, Button } from 'antd';
+import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import { Header } from "antd/lib/layout/layout";
 import  Guestbook  from "./guestbook";
-// import { CKEditor } from '@ckeditor/ckeditor5-react';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
 
 function App() {
-  const login = useGoogleLogin({
-    onSuccess: async (codeResponse) => {
-      const { code } = codeResponse
-      console.log(codeResponse),
-      await axios.post('http://localhost:5000/auth/google', {
-        code,
-      });
-    },
-    flow: 'auth-code',
-  });
+  // const login = useGoogleLogin({
+  //   onSuccess: async (codeResponse) => {
+  //     const { code } = codeResponse
+  //     console.log(codeResponse),
+  //     await axios.post('http://localhost:5000/auth/google', {
+  //       code,
+  //     });
+  //   },
+  //   flow: 'auth-code',
+  // });
 
-  const [time, setTime] = useState(new Date());
-  const timer = setInterval(() => {
-    setTime(new Date());
-  }, 1000);
-
-  useEffect(() => {
-    clearInterval(timer);
-  }, [timer]);
+  // const [time, setTime] = useState(new Date());
+  // const timer = setInterval(() => {
+  //   setTime(new Date());
+  // }, 1000);
   
+  // useEffect(() => {
+  //   clearInterval(timer);
+  // }, [timer]);
+
   return (
     <Layout className="layout">
-    {/* <h3>현재 시간: {time.toLocaleTimeString()}</h3> */}
-    {/* <Button onClick={() => {
-      login();
-    }}>로그인</Button> */}
     <Router>
           <Header>
             <Menu
@@ -77,14 +70,10 @@ function App() {
         </Layout>
   );   }
 
-
 const Home = () => {
-  return <a style={{background: "#fff",
-  height: 200, padding: 24, marginTop: "60px",
-  marginBottom: 60,
-
-}}
+  return <a className="HOME"
   href="https://jun01270.github.io/blog_react/">홈페이지</a>;
+  // <h3>현재 시간: {time.toLocaleTimeString()}</h3>
 }
 
 const Resume = () => {
@@ -104,7 +93,7 @@ const Resume = () => {
       </>
     </div>
     );
-  return <></>
+
 }
 
 const Portfolio = () => {
