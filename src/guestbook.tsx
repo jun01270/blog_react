@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Avatar, Button, List } from "antd";
 import axios from "axios";
+import { GoogleLogin} from '@react-oauth/google';
 
 type GuestbookItem = {
     key: number,
@@ -29,13 +30,11 @@ type GuestbookItem = {
             })
         }
         setData(items)
-    };
+    }
     return(
     <>
      <List
      loading={loading}
-
-
       itemLayout="horizontal"
       dataSource={data}
       renderItem={(item) => (
@@ -56,6 +55,14 @@ type GuestbookItem = {
           />
         </List.Item>
       )}
+    />
+      <GoogleLogin 
+      onSuccess={credentialResponse => {
+        console.log(credentialResponse);
+      }}
+      onError={() => {
+        console.log('Login Failed');
+      }}
     />
     <Button
      onClick={async() => {
