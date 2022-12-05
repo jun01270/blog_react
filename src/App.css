@@ -30,3 +30,11 @@
     float: right;
     margin: 16px 0 16px 24px;
   }
+
+  .HOME{
+    background: "#fff";
+    height: "200";
+    padding: 24;
+    margin-Top: "60px";
+    margin-Bottom: 60;
+  }
