@@ -87,7 +87,7 @@ const Resume = () => {
       </ul>
       <h3>경력</h3>
       <>
-        <li>SKT</li>
+        <li></li>
       </>
     </div>
     );
