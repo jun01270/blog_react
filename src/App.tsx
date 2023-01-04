@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes ,Route,Link} from "react-router-dom";
 import './App.css';
 import { Layout, Menu, Button } from 'antd';
 import { Header } from "antd/lib/layout/layout";
@@ -96,8 +96,8 @@ const Resume = () => {
 
 const Portfolio = () => {
   return <><h2>포트폴리오</h2>
-  <li style={{ margin: "20px" }}><a href="https://jun01270.github.io/blog_react/">React로 만든 자기소개 블로그</a></li> 
-  
+  <li style={{ margin: "20px" }}><a href="https://jun01270.github.io/blog_react/">React로 만든 자기소개 블로그</a></li>  
+  <li style={{ margin: "20px" }}><a href="https://jun01270.github.io/Todo-List/">React로 만든 Todo-List</a></li> 
   </>
 }
 

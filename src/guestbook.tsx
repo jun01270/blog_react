@@ -17,7 +17,6 @@ type GuestbookItem = {
 
     const fecthGuestbookItems = async () => {
         const { data } = await axios.get('http://localhost:3001/guestbook/items');
-        //위에거 url 변경
         // console.log('results', results);
         const items: GuestbookItem[] = [];
         const results = data;
